@@ -249,55 +249,6 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Témoignages fictifs */}
-        <section className="py-20 px-6 bg-white">
-          <div className="container mx-auto max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: scrollY > 1400 ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Ce que disent nos testeurs
-              </h2>
-              <div className="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  quote: "Narrativ m'a permis de structurer mon histoire de reconversion professionnelle d'une manière captivante. Les retours positifs ne se sont pas fait attendre !",
-                  author: "Sophie M.",
-                  role: "Coach en développement personnel"
-                },
-                {
-                  quote: "Grâce à Narrativ, j'ai pu présenter mon parcours d'entrepreneur de façon authentique. C'est devenu mon meilleur outil pour attirer de nouveaux clients.",
-                  author: "Thomas L.",
-                  role: "Freelance en marketing digital"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: scrollY > 1500 ? 1 : 0, y: scrollY > 1500 ? 0 : 20 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="bg-gray-50 p-8 rounded-2xl shadow-md"
-                >
-                  <svg className="w-12 h-12 text-indigo-400 mb-6" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 8v8H6c0 2.2 1.8 4 4 4v4c-4.4 0-8-3.6-8-8V8h8zm12 0v8h-4c0 2.2 1.8 4 4 4v4c-4.4 0-8-3.6-8-8V8h8z"></path>
-                  </svg>
-                  <p className="text-gray-700 mb-6 text-lg italic">&quot;{item.quote}&quot;</p>
-                  <div>
-                    <p className="font-semibold text-gray-800">{item.author}</p>
-                    <p className="text-gray-500 text-sm">{item.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-        
         {/* Section CTA (Formulaire) avec design amélioré */}
         <section id="signup" className="py-24 px-6 bg-gradient-to-br from-indigo-900 via-blue-800 to-cyan-700 text-white">
           <div className="container mx-auto max-w-6xl">

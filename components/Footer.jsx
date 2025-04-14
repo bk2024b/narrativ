@@ -1,26 +1,39 @@
-// components/Footer.js
+
+// components/Footer.jsx
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaEnvelope, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-gradient-to-r from-indigo-900 via-blue-800 to-indigo-900 text-white py-12">
+    <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* About */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">Narrativ</h3>
-            <p className="text-gray-300 mb-4">
+            <div className="flex items-center mb-6">
+              <div className="relative h-12 w-12 mr-3">
+                <Image 
+                  src="/logo-narrativ.PNG" 
+                  alt="Narrativ Logo" 
+                  layout="fill" 
+                  objectFit="contain"
+                  className="rounded-md"
+                />
+              </div>
+              <h3 className="text-2xl font-bold">Narrativ</h3>
+            </div>
+            <p className="text-gray-300 mb-6 leading-relaxed">
               La plateforme qui permet aux freelances, coaches et entrepreneurs de partager leur histoire professionnelle et de connecter authentiquement avec leur audience.
             </p>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Liens rapides</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6 text-cyan-400">Liens rapides</h3>
+            <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200">
                   Accueil
@@ -46,21 +59,21 @@ export default function Footer() {
           
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6 text-cyan-400">Contact</h3>
+            <ul className="space-y-3">
               <li>
                 <a href="mailto:narrativ.dev@gmail.com" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200 flex items-center">
-                  <FaEnvelope className="mr-2" /> Email
+                  <FaEnvelope className="mr-3" /> Email
                 </a>
               </li>
               <li>
                 <a href="https://wa.me/40545270" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200 flex items-center">
-                  <FaWhatsapp className="mr-2" /> WhatsApp
+                  <FaWhatsapp className="mr-3" /> WhatsApp
                 </a>
               </li>
               <li>
                 <a href="https://linkedin.com/in/votre-profil" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200 flex items-center">
-                  <FaLinkedin className="mr-2" /> LinkedIn
+                  <FaLinkedin className="mr-3" /> LinkedIn
                 </a>
               </li>
             </ul>
@@ -68,15 +81,15 @@ export default function Footer() {
         </div>
         
         {/* Bottom */}
-        <div className="pt-8 border-t border-blue-700 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-300 mb-4 md:mb-0">
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-gray-400 mb-4 md:mb-0">
             © {currentYear} Narrativ. Tous droits réservés.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200 text-sm">
+            <a href="#" className="text-gray-400 hover:text-cyan-300 transition-colors duration-200 text-sm">
               Politique de confidentialité
             </a>
-            <a href="#" className="text-gray-300 hover:text-cyan-300 transition-colors duration-200 text-sm">
+            <a href="#" className="text-gray-400 hover:text-cyan-300 transition-colors duration-200 text-sm">
               Conditions d'utilisation
             </a>
           </div>
