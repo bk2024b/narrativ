@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="bg-bleu-nuit text-white py-4">
+    <header className="bg-[#1E3A8A] text-white py-4">
       <nav className="container mx-auto flex justify-between items-center px-4">
         <Link href="/">
           <a className="flex items-center">
@@ -14,10 +14,10 @@ export default function Header() {
         </Link>
         <div className="space-x-4">
           <Link href="/">
-            <a className="hover:text-turquoise-clair">Accueil</a>
+            <a className="hover:text-[#2DD4BF]">Accueil</a>
           </Link>
           <Link href="#signup">
-            <a className="bg-turquoise-clair text-white px-4 py-2 rounded-lg hover:bg-bleu-nuit transition">
+            <a className="bg-[#2DD4BF] text-white px-4 py-2 rounded-lg hover:bg-bleu-nuit transition">
               S’inscrire
             </a>
           </Link>
