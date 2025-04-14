@@ -1,103 +1,150 @@
-import Image from "next/image";
+'use client'
+// pages/index.js
+import Head from 'next/head';
+import Link from 'next/link';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { useState } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '' });
+  const [message, setMessage] = useState('');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase.from('subscribers').insert([
+      { name: formData.name, email: formData.email, whatsapp: formData.whatsapp },
+    ]);
+    if (error) {
+      setMessage('Erreur lors de l’inscription. Réessayez !');
+    } else {
+      setMessage('Inscription réussie ! Vous serez notifié bientôt.');
+      setFormData({ name: '', email: '', whatsapp: '' });
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div>
+      <Head>
+        <title>Narrativ - Partagez votre histoire professionnelle</title>
+        <meta name="description" content="Plateforme pour freelances, coaches et entrepreneurs qui veulent partager leur parcours." />
+      </Head>
+      <Header />
+      <main className="bg-gris-clair">
+        {/* Hero Section */}
+        <section className="flex flex-col items-center justify-center h-[80vh] text-center px-4 bg-gradient-to-b from-bleu-nuit to-turquoise-clair">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Narrativ - Racontez votre histoire, inspirez votre audience
+          </h1>
+          <p className="text-lg md:text-xl text-gris-clair mb-6 max-w-2xl">
+            Une plateforme pour freelances, coaches et entrepreneurs qui veulent partager leur parcours et connecter avec leur communauté.
+          </p>
+          <Link href="#signup">
+            <a className="bg-turquoise-clair text-white px-6 py-3 rounded-lg hover:bg-bleu-nuit transition">
+              S’inscrire maintenant
+            </a>
+          </Link>
+        </section>
+
+        {/* Pourquoi Narrativ ? */}
+        <section className="py-16 px-4">
+          <h2 className="text-3xl font-bold text-bleu-nuit text-center mb-8">
+            Pourquoi partager votre histoire ?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">Inspirez votre audience</h3>
+              <p className="text-gray-600">
+                Racontez vos galères et victoires pour motiver vos clients.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">Attirez des opportunités</h3>
+              <p className="text-gray-600">
+                Un récit authentique peut ouvrir des portes à de nouveaux projets.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">Connectez avec votre communauté</h3>
+              <p className="text-gray-600">
+                Créez des liens profonds avec ceux qui partagent vos valeurs.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Comment ça marche ? */}
+        <section className="py-16 px-4 bg-gris-clair">
+          <h2 className="text-3xl font-bold text-bleu-nuit text-center mb-8">
+            3 étapes pour briller avec Narrativ
+          </h2>
+          <div className="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">1. Créez votre profil</h3>
+              <p className="text-gray-600">Ajoutez votre bio et vos liens sociaux en 2 min.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">2. Racontez votre histoire</h3>
+              <p className="text-gray-600">Partagez vos chapitres – débuts, défis, succès.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-bleu-nuit mb-2">3. Engagez votre audience</h3>
+              <p className="text-gray-600">Recevez des likes et commentaires de votre communauté.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section CTA (Formulaire) */}
+        <section id="signup" className="py-16 px-4 bg-bleu-nuit text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">
+            Soyez les premiers à tester Narrativ !
+          </h2>
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Votre nom"
+              className="w-full p-3 rounded-lg"
+              required
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Votre e-mail"
+              className="w-full p-3 rounded-lg"
+              required
+            />
+            <input
+              type="text"
+              name="whatsapp"
+              value={formData.whatsapp}
+              onChange={handleChange}
+              placeholder="Votre numéro WhatsApp (facultatif)"
+              className="w-full p-3 rounded-lg"
+            />
+            <button
+              type="submit"
+              className="bg-turquoise-clair text-white px-6 py-3 rounded-lg hover:bg-bleu-nuit transition w-full"
+            >
+              S’inscrire maintenant
+            </button>
+          </form>
+          {message && <p className="text-gris-clair mt-4">{message}</p>}
+          <p className="text-gris-clair mt-4">
+            Nous vous notifierons dès le lancement – promis, pas de spam !
+          </p>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
