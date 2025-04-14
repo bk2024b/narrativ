@@ -3,13 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 export default function ThankYou() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+     
       
       <main className="font-sans">
         {/* Hero Section */}
@@ -177,7 +175,7 @@ export default function ThankYou() {
         </section>
       </main>
       
-      <Footer />
+      
     </div>
   );
 }
