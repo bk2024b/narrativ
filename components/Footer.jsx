@@ -30,13 +30,13 @@ export default function Footer() {
               La plateforme premium qui permet aux freelances, coaches et entrepreneurs de partager leur histoire professionnelle et de créer une connexion authentique avec leur audience.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="LinkedIn">
+              <a href="www.linkedin.com/in/josias-boco-70963a219" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="LinkedIn">
                 <FaLinkedin className="text-white" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="WhatsApp">
+              <a href="https://wa.me/40545270" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="WhatsApp">
                 <FaWhatsapp className="text-white" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="Email">
+              <a href="mailto:narrativ.dev@gmail.com" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-teal-800 flex items-center justify-center transition-colors duration-300" aria-label="Email">
                 <FaEnvelope className="text-white" />
               </a>
             </div>
@@ -111,7 +111,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <FaLinkedin className="text-teal-500" />
-                <a href="https://linkedin.com/in/votre-profil" className="text-gray-400 hover:text-teal-300 transition-colors duration-200 text-sm">
+                <a href="www.linkedin.com/in/josias-boco-70963a219" className="text-gray-400 hover:text-teal-300 transition-colors duration-200 text-sm">
                   linkedin.com/narrativ
                 </a>
               </li>
