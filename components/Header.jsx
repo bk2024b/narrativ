@@ -28,16 +28,13 @@ export default function Header() {
           <Link href="/">
             <div className="flex items-center cursor-pointer group">
               <div className="relative h-12 w-12 mr-3 overflow-hidden rounded-full shadow-lg border-2 border-teal-500 group-hover:border-teal-400 transition-all duration-300 flex items-center justify-center bg-gray-900">
-                <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Circle */}
-                  <circle cx="50" cy="50" r="40" stroke="#8A8A8A" strokeWidth="5" fill="none" />
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Plume agrandie - j'ai supprimé le cercle */}
+                  <path d="M30 75C42 57 54 39 70 20C64 32 58 44 52 56C45 62 38 69 30 75Z" fill="#0A2559" />
+                  <path d="M28 79C40 61 52 43 68 24C62 36 56 48 50 60C43 66 36 73 28 79Z" fill="#0A2559" />
                   
-                  {/* Feather */}
-                  <path d="M35 70C45 55 55 40 65 25C60 35 55 45 50 55C45 60 40 65 35 70Z" fill="#0A2559" />
-                  <path d="M33 74C43 59 53 44 63 29C58 39 53 49 48 59C43 64 38 69 33 74Z" fill="#0A2559" />
-                  
-                  {/* Star/sparkle */}
-                  <path d="M70 40L73 47L80 50L73 53L70 60L67 53L60 50L67 47L70 40Z" fill="#2C9DB8" />
+                  {/* Étoile/sparkle - légèrement plus grande */}
+                  <path d="M70 35L74 45L84 49L74 53L70 63L66 53L56 49L66 45L70 35Z" fill="#2C9DB8" />
                 </svg>
               </div>
               <div>
