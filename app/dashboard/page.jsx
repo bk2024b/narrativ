@@ -70,7 +70,7 @@ export default function Dashboard() {
               </h1>
               <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Explorez et g�rez tous les inscrits � votre plateforme.
+                Explorez et gérez tous les inscrits à votre plateforme.
               </p>
             </motion.div>
           </div>
