@@ -8,7 +8,7 @@ export default function Header() {
       <nav className="container mx-auto flex justify-between items-center px-4">
         <Link href="/">
           <a className="flex items-center">
-            <Image src="/logo-narrativ.png" alt="Narrativ Logo" width={40} height={40} />
+            <Image src="/logo-narrativ.PNG" alt="Narrativ Logo" width={40} height={40} />
             <span className="ml-2 text-2xl font-bold">Narrativ</span>
           </a>
         </Link>
