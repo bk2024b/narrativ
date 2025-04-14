@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; // Import pour la redirection
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 // Nous gardons l'import de supabase mais ne le modifions pas
@@ -13,6 +14,7 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '' });
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter(); // Pour la redirection
   
   // Références pour les animations scroll - réduites pour améliorer les performances
   const heroRef = useRef(null);
@@ -44,6 +46,8 @@ export default function Home() {
       } else {
         setMessage('Inscription réussie ! Vous serez notifié bientôt.');
         setFormData({ name: '', email: '', whatsapp: '' });
+        // Redirection après inscription - comme demandé
+        router.push('/thank-you');
       }
     } catch (error) {
       setMessage('Une erreur est survenue. Veuillez réessayer.');
@@ -58,7 +62,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Next.js 13+ App Router n'utilise pas Head component */}
       <Header />
       
       <main className="font-sans">
@@ -98,12 +101,12 @@ export default function Home() {
               
               <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight font-serif">
                 <span className="block text-teal-400 mb-2 text-xl uppercase tracking-[0.3em] font-light">Votre histoire</span>
-                Transformez votre parcours en<br />
-                <span className="text-teal-500">attraction magnétique</span>
+                Narrativ - Racontez votre histoire,<br />
+                <span className="text-teal-500">inspirez votre audience</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                La plateforme premium qui permet aux freelances et entrepreneurs d&apos;impact de transformer leur parcours en machine d&apos;acquisition de clients.
+                Une plateforme pour freelances, coaches et entrepreneurs qui veulent partager leur parcours et connecter avec leur communauté.
               </p>
               
               <motion.div
@@ -112,7 +115,7 @@ export default function Home() {
                 className="mb-12"
               >
                 <Link href="#signup" className="inline-block bg-gradient-to-br from-teal-400 to-gray-700 text-white font-medium px-10 py-5 rounded-lg shadow-xl hover:shadow-lg transition-all duration-300 uppercase tracking-wider border border-teal-400/30">
-                  Accès prioritaire
+                  S'inscrire maintenant
                 </Link>
               </motion.div>
               
@@ -158,15 +161,15 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Dans un marché saturé, votre histoire authentique est votre atout le plus puissant pour créer une connexion émotionnelle avec vos clients potentiels.
+                Racontez vos galères et victoires pour motiver vos clients et créer des liens profonds avec ceux qui partagent vos valeurs.
               </p>
             </motion.div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
               {[
                 {
-                  title: "Captivez votre audience",
-                  description: "Transformez vos défis et réussites en récit mémorable qui résonne profondément avec vos clients idéaux.",
+                  title: "Inspirez votre audience",
+                  description: "Racontez vos galères et victoires pour motiver vos clients.",
                   icon: (
                     <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -175,8 +178,8 @@ export default function Home() {
                   )
                 },
                 {
-                  title: "Attirez des clients premium",
-                  description: "Créez un positionnement d'expert unique qui attire naturellement vers vous les clients de haute valeur.",
+                  title: "Attirez des opportunités",
+                  description: "Un récit authentique peut ouvrir des portes à de nouveaux projets.",
                   icon: (
                     <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -184,8 +187,8 @@ export default function Home() {
                   )
                 },
                 {
-                  title: "Bâtissez une marque forte",
-                  description: "Établissez une connexion émotionnelle qui transforme vos prospects en ambassadeurs fidèles.",
+                  title: "Connectez avec votre communauté",
+                  description: "Créez des liens profonds avec ceux qui partagent vos valeurs.",
                   icon: (
                     <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -226,11 +229,11 @@ export default function Home() {
             >
               <span className="uppercase text-gray-600 tracking-[0.2em] font-medium text-sm mb-3 inline-block">Notre processus</span>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
-                Comment <span className="text-gray-700">ça marche</span> ?
+                3 étapes pour <span className="text-gray-700">briller avec Narrativ</span>
               </h2>
               <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Un processus simplifié en trois étapes pour transformer votre histoire en outil d&apos;attraction client
+                Un processus simplifié pour transformer votre histoire en outil d'attraction client
               </p>
             </motion.div>
             
@@ -242,18 +245,18 @@ export default function Home() {
                 {[
                   {
                     step: "1",
-                    title: "Créez votre profil narratif",
-                    description: "Configurez votre espace premium et découvrez notre méthodologie exclusive pour construire votre récit professionnel."
+                    title: "Créez votre profil",
+                    description: "Ajoutez votre bio et vos liens sociaux en 2 min."
                   },
                   {
                     step: "2",
-                    title: "Structurez votre parcours",
-                    description: "Transformez vos expériences en récit captivant avec nos templates exclusifs et conseils d'experts en storytelling."
+                    title: "Racontez votre histoire",
+                    description: "Partagez vos chapitres – débuts, défis, succès."
                   },
                   {
                     step: "3",
-                    title: "Convertissez votre audience",
-                    description: "Partagez votre histoire et utilisez nos outils d'analyse pour mesurer son impact sur votre acquisition client."
+                    title: "Engagez votre audience",
+                    description: "Recevez des likes et commentaires de votre communauté."
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -299,11 +302,11 @@ export default function Home() {
               >
                 <span className="uppercase text-teal-400 tracking-[0.2em] font-medium text-sm mb-3 inline-block">Lancement imminent</span>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
-                  Rejoignez les pionniers de <span className="text-teal-500">Narrativ</span>
+                  Soyez les premiers à tester <span className="text-teal-500">Narrativ</span> !
                 </h2>
                 <div className="w-24 h-1 bg-teal-500 mb-8"></div>
                 <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                  Inscrivez-vous dès maintenant pour être parmi les premiers à accéder à notre plateforme exclusive et bénéficier d&apos;avantages réservés aux early-adopters.
+                  Inscrivez-vous dès maintenant pour être parmi les premiers à accéder à notre plateforme pour freelances, coaches et entrepreneurs.
                 </p>
                 
                 <div className="space-y-6 mb-12">
@@ -317,7 +320,7 @@ export default function Home() {
                       )
                     },
                     {
-                      text: "Tarif préférentiel exclusif pour les membres fondateurs",
+                      text: "Connectez avec des audiences qui partagent vos valeurs",
                       icon: (
                         <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
@@ -325,7 +328,7 @@ export default function Home() {
                       )
                     },
                     {
-                      text: "Consultation stratégique individuelle offerte",
+                      text: "Transformez votre histoire en outil d'attraction client",
                       icon: (
                         <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
@@ -349,10 +352,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-gray-800 p-10 rounded-2xl border border-gray-700 shadow-2xl"
               >
-                <h3 className="text-2xl font-semibold mb-6 text-center font-serif">Inscrivez-vous à la liste d&apos;attente</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-center font-serif">Inscrivez-vous maintenant</h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">Nom complet</label>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">Votre nom</label>
                     <input
                       type="text"
                       id="name"
@@ -365,7 +368,7 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">Votre e-mail</label>
                     <input
                       type="email"
                       id="email"
@@ -378,7 +381,7 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="whatsapp" className="block text-sm font-medium mb-2 text-gray-300">WhatsApp (facultatif)</label>
+                    <label htmlFor="whatsapp" className="block text-sm font-medium mb-2 text-gray-300">Votre numéro WhatsApp (facultatif)</label>
                     <input
                       type="text"
                       id="whatsapp"
@@ -403,7 +406,7 @@ export default function Home() {
                           </svg>
                           Inscription en cours...
                         </>
-                      ) : "Réserver votre place"}
+                      ) : "S'inscrire maintenant"}
                     </button>
                   </div>
                 </form>
@@ -413,7 +416,7 @@ export default function Home() {
                   </div>
                 )}
                 <p className="text-sm text-center mt-6 text-gray-400">
-                  Nous respectons votre vie privée et ne partageons jamais vos informations.
+                  Nous vous notifierons dès le lancement – promis, pas de spam !
                 </p>
               </motion.div>
             </div>
