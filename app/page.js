@@ -115,7 +115,7 @@ export default function Home() {
                 className="mb-12"
               >
                 <Link href="#signup" className="inline-block bg-gradient-to-br from-teal-400 to-gray-700 text-white font-medium px-10 py-5 rounded-lg shadow-xl hover:shadow-lg transition-all duration-300 uppercase tracking-wider border border-teal-400/30">
-                  S'inscrire maintenant
+                  S&apos;inscrire maintenant
                 </Link>
               </motion.div>
               
@@ -233,7 +233,7 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Un processus simplifié pour transformer votre histoire en outil d'attraction client
+                Un processus simplifié pour transformer votre histoire en outil d&apos;attraction client
               </p>
             </motion.div>
             
