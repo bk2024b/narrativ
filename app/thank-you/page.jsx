@@ -58,7 +58,7 @@ export default function ThankYou() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <a
-                    href="https://linkedin.com/in/[ton-profil]"
+                    href="www.linkedin.com/in/josias-boco-70963a219"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-to-br from-teal-400 to-gray-700 text-white font-medium px-10 py-5 rounded-lg shadow-xl hover:shadow-lg transition-all duration-300 uppercase tracking-wider border border-teal-400/30"
@@ -72,7 +72,7 @@ export default function ThankYou() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <a
-                    href="https://wa.me/[ton-numéro]"
+                    href="https://wa.me/40545270"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-to-br from-gray-700 to-teal-500 text-white font-medium px-10 py-5 rounded-lg shadow-xl hover:shadow-lg transition-all duration-300 uppercase tracking-wider border border-teal-400/30"
