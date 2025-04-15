@@ -1,7 +1,7 @@
 // components/Footer.jsx
 import Link from 'next/link';
-import Image from 'next/image';
 import { FaEnvelope, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import { BookOpen } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,13 +14,9 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-5">
             <div className="flex items-center mb-8">
               <div className="relative h-14 w-14 mr-4 overflow-hidden rounded-full shadow-lg border-2 border-teal-500">
-                <Image 
-                  src="/logo-narrativ.PNG" 
-                  alt="Narrativ Logo" 
-                  width={56}
-                  height={56}
-                  className="object-cover"
-                />
+                <div className="flex items-center justify-center h-full w-full bg-gray-900">
+                  <BookOpen size={36} color="#2C9DB8" strokeWidth={2} />
+                </div>
               </div>
               <h3 className="text-2xl font-bold tracking-tight">
                 Narr<span className="text-teal-500">a</span>tiv
