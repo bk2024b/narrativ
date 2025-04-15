@@ -58,7 +58,7 @@ export default function ThankYou() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <a
-                    href="www.linkedin.com/in/josias-boco-70963a219"
+                    href="https://www.linkedin.com/in/josias-boco-70963a219"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-to-br from-teal-400 to-gray-700 text-white font-medium px-10 py-5 rounded-lg shadow-xl hover:shadow-lg transition-all duration-300 uppercase tracking-wider border border-teal-400/30"
